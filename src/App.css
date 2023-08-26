@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* Start App Styles */
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
