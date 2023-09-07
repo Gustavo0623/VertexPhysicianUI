@@ -63,13 +63,17 @@
 #userDetails {
   background-color: grey;
   width: calc(100% - 5em);
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
+  cursor: pointer;
 }
-
+.userFlexBlock{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .iconContainer {
   display: flex;
   justify-content: center;
@@ -92,7 +96,13 @@ img{
 }
 
 .icon:hover {
-  cursor: pointer;
   scale: 1.05
 }
 
+.expansion{
+  display: block;
+  color: blue;
+  width: 100%;
+  background-color: red;
+  height: 100px;
+}
