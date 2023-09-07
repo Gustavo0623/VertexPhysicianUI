@@ -72,12 +72,15 @@
 
 .iconContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1em;
 }
 
 img{
   width: 40px;
 }
+
 .icon {
   width: 50px;
   height: 50px;
@@ -86,5 +89,10 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.icon:hover {
+  cursor: pointer;
+  scale: 1.05
 }
 
