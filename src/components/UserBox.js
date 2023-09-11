@@ -19,6 +19,7 @@ function UserBox () {
         } else if (userIndex !== null) {
             if ( index === userIndex) {
                 setCollapse(true)
+                setUserIndex(null)
             } else if ( index !== userIndex) {
                 setCollapse(false)
                 setUserIndex(index)
