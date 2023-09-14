@@ -34,7 +34,7 @@ function UserBox () {
                 <div id='userDetails' key={index} > 
                     <div className='userFlexBlock' onClick={() => expand(index)}>
                         <h1>{user[0]}</h1>
-                        <Icons iconDetails={user[1]}/>
+                        <Icons iconDetails={user[1]} collapsed={collapse}/>
                     </div>
                     {!collapse && index === userIndex ? <Details/> : null}
                 </div>

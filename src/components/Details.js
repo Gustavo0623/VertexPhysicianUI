@@ -4,7 +4,7 @@ function Details ({userDetails}) {
 
     return (
         <div className='expansion'>
-            <p>expanded</p>
+            
         </div>
     )
 }

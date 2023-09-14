@@ -1,7 +1,7 @@
 // Icon Component with icon details props passed from UserBox component
 import React from 'react'
 
-function Icons ({iconDetails}) {
+function Icons ({iconDetails, collapsed}) {
 
     // function that will determine the className of each icon to determine the color depending on the iconDetails prop value that will change with every user
     const setClass = (detail) => {

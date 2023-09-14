@@ -77,3 +77,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "https://www.flaticon.com/free-icons/juice" Juice icons created by Smashicons - Flaticon
 
 "https://www.flaticon.com/free-icons/heart" Heart icons created by Freepik - Flaticon
+
+"https://www.flaticon.com/free-icons/traffic" Traffic icons created by Freepik - Flaticon
+
+"https://www.flaticon.com/free-icons/shield" Shield icons created by Good Ware - Flaticon
+
+"https://www.flaticon.com/free-icons/heart" Heart icons created by Ifanicon - Flaticon
+
+"https://www.flaticon.com/free-icons/smile" Smile icons created by Freepik - Flaticon
+
+"https://www.flaticon.com/free-icons/smile" Smile icons created by rukanicon - Flaticon
+
+"https://www.flaticon.com/free-icons/frown" Frown icons created by rukanicon - Flaticon
+
+"https://www.flaticon.com/free-icons/pills" Pills icons created by ghost_icon - Flaticon

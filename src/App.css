@@ -95,14 +95,8 @@ img{
   align-items: center;
 }
 
-.icon:hover {
-  scale: 1.05
-}
-
 .expansion{
   display: block;
-  color: blue;
   width: 100%;
-  background-color: red;
   height: 100px;
 }
