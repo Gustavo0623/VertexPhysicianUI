@@ -1,6 +1,6 @@
 import React from "react";
 
-function Expand ({iconDetails}) {
+function PatientInfo ({iconDetails}) {
 
     // function that will determine the className of each icon to determine the color depending on the iconDetails prop value that will change with every user
     const setClass = (detail) => {
@@ -13,18 +13,19 @@ function Expand ({iconDetails}) {
         return 'icon red'
     }
 
-    const imageURL = ['images/home.png', 'images/drink.png', 'images/heart.png', 'images/car.png', 'images/lifeline.png', 'images/sad.png', 'images/shield.png', 'images/pills-bottle.png', ]
-    const imageAlts = ['Housing/Utilities Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+    const imageURL = ['../images/home.png', '../images/drink.png', '../images/heart.png', '../images/car.png', '../images/lifeline.png', '../images/sad.png', '../images/shield.png', '../images/pills-bottle.png', ]
+    const imageDescriptions = ['Housing/Utilities Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+    
     return (
 
         <div className='expansion'>
             {
                 iconDetails.map((detail, index) => (
                     <div className='detailGroup' key={index}>
+                        <p className='detail'>{imageDescriptions[index]}</p>
                         <div className={setClass(detail)}>
-                            <img src={imageURL[index]} alt={imageAlts[index]}/>
+                            <img src={imageURL[index]} alt={imageDescriptions[index]}/>
                         </div>
-                        <p className='detail'>{imageAlts[index]}</p>
                     </div>
                 ))
             }
@@ -33,4 +34,4 @@ function Expand ({iconDetails}) {
 
 }
 
-export default Expand
+export default PatientInfo

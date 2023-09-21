@@ -60,20 +60,21 @@
   margin-top: 2em;
 }
 
-#userDetails {
+.userDetails {
+  display: grid;
+  gap: 1rem;
   background-color: grey;
   width: calc(100% - 5em);
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1em;
+  padding: 1rem;
   border-radius: 24px;
 }
 .userFlexBlock{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .iconContainer {
   display: flex;
@@ -97,12 +98,9 @@ img{
 }
 
 .expansion{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 1rem;
-  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -119,4 +117,12 @@ img{
   flex: 1;
   text-align: center;
   font-weight: bold;
+}
+
+.userName {
+  margin: auto;
+}
+
+.patientPage {
+  width: calc(100% - 5em);
 }
