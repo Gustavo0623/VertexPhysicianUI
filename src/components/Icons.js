@@ -29,17 +29,6 @@ function Icons ({iconDetails}) {
                 <div className={ setClass(iconDetails[2]) }>
                     <img src='images/heart.png' alt='health'/>
                 </div>
-
-                {   // ** this wont work in this component since it will be in the same div the width gets adjusted **
-                    // !collapsed && index === userIndex ? 
-                    // <div className='expansion'>
-                    //     <div className={ setClass(iconDetails[3]) }>
-                    //         <img src='images/car.png' alt='transportation security icon'/>
-                    //     </div> 
-                    // </div>
-                    // : 
-                    // null
-                }
                 
             </div>
 

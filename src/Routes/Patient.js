@@ -7,7 +7,7 @@ function Patient ({currentUser}) {
 
     console.log(currentUser)
 
-    // TODO : API Fetch Request Based on URL Parameters 
+    // TODO : API Fetch Request Based on URL Parameters ***
 
     // TODO : Arrange data into array to pass onto PatientInfo Component
 

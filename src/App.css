@@ -39,38 +39,39 @@
 
 /* Start App Styles */
 .green {
-  background-color: green;
+  background-color: #4caf50;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #ecb141;
 }
 
 .red {
-  background-color: red;
+  background-color: #d24f4b;
 }
 
 #userBox {
-  width: 100vw;
+  width: calc(100% - 5em);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  margin-top: 2em;
+  padding-bottom: 1em;
+  background-color: #ffffff;
+  margin: auto;
+  border-radius: 14px;
 }
 
 .userDetails {
   display: grid;
-  gap: 1rem;
-  background-color: grey;
   width: calc(100% - 5em);
+  gap: 1rem;
   padding: 1rem;
-  border-radius: 24px;
 }
 .userFlexBlock{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 2fr 3fr 3fr;
   gap: 1rem;
   cursor: pointer;
   text-decoration: none;
@@ -78,18 +79,19 @@
 }
 .iconContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1em;
+  gap: .5rem;
 }
 
 img{
-  width: 40px;
+  width: 20px;
+  filter: invert(100%)
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   padding: .5em;
   border-radius: 50%;
   display: flex;
@@ -121,8 +123,105 @@ img{
 
 .userName {
   margin: auto;
+  width: 100%;
+  text-align: left;
+}
+
+.userMRN {
+  text-align: left;
 }
 
 .patientPage {
   width: calc(100% - 5em);
+}
+
+.titleBox {
+  display: flex;
+  width: calc(100% - 5em);
+  padding: 1rem;
+  gap: 1rem;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+
+#bodyBracket{	
+  background-color: #f9f9fa;
+}
+
+#patientListHeader {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 5em);
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+#result {
+  flex-grow: 4;
+  flex-basis: 200px;
+}
+
+#filterBox{
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 250px;
+  gap: 1rem;
+}
+
+#patientsText{
+  width: calc(100% - 2.5em);
+  margin: auto;
+  text-align: left;
+}
+#numResults, .filter{	
+  text-align: left;
+  color: #6c6a72;
+}
+
+.filter {
+  border: 1.5px solid #f0f0f2;
+}
+
+#select {
+  border: 1.5px solid #f0f0f2;
+  background-color: #ffffff;
+  height: 32px;
+  flex-grow: 3;
+  border-radius: 6px;
+}
+#patientFilterSelect{
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 1em;
+  border-radius: 6px;
+}
+
+#patientFilterSelect:active {
+  border: none;
+}
+
+#newButton{	
+  border: none;
+  border-radius: 6px;
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #212254;
+  color: #ffffff;
+  cursor: pointer;
+}
+#nameText{
+  text-align: left;
+  flex: 2;
+}
+#MRNText{	
+  text-align: left;
+  flex: 3;
+}
+#riskText{	
+  text-align: left;
+  flex: 3;
 }
