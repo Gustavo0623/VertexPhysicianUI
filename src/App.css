@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -56,7 +54,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: .5em;
   padding-bottom: 1em;
   background-color: #ffffff;
   margin: auto;
@@ -68,10 +66,15 @@
   width: calc(100% - 5em);
   gap: 1rem;
   padding: 1rem;
+  border-bottom: 2px solid #f9f9fa;
+}
+
+.userDetails:last-child {
+  border-bottom: none;
 }
 .userFlexBlock{
   display: grid;
-  grid-template-columns: 2fr 3fr 3fr;
+  grid-template-columns: 2fr 3fr 5fr;
   gap: 1rem;
   cursor: pointer;
   text-decoration: none;
@@ -81,7 +84,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: .5rem;
+  overflow: auto;
 }
 
 img{
@@ -109,8 +112,6 @@ img{
 .detailGroup{
   display: flex;
   align-items: center;
-  background-color: #f6f6f650;
-  backdrop-filter: blur(1px);
   padding: .5rem;
   border-radius: 16px;
 }
@@ -121,18 +122,15 @@ img{
   font-weight: bold;
 }
 
-.userName {
+.userName, .userMRN{
   margin: auto;
   width: 100%;
   text-align: left;
 }
 
-.userMRN {
-  text-align: left;
-}
-
 .patientPage {
   width: calc(100% - 5em);
+  margin: auto;
 }
 
 .titleBox {
@@ -147,14 +145,16 @@ img{
 
 #bodyBracket{	
   background-color: #f9f9fa;
+  min-height: 98vh;
 }
 
 #patientListHeader {
   display: flex;
   flex-wrap: wrap;
   width: calc(100% - 5em);
-  margin: auto;
+  margin: .5rem auto;
   justify-content: space-between;
+  gap: .5rem;
   align-items: center;
 }
 #result {
@@ -165,18 +165,33 @@ img{
 #filterBox{
   display: flex;
   flex-grow: 1;
-  flex-basis: 250px;
+  flex-basis: 350px;
   gap: 1rem;
 }
 
-#patientsText{
+#dropdownArrow {
+  position: absolute;
+  top: 50%;
+  right: .8em; /* Adjust the right position as needed */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000; /* Change color as needed */
+  pointer-events: none;
+  z-index: 2;
+}
+
+#patientsText, .name{
   width: calc(100% - 2.5em);
-  margin: auto;
+  margin: .5rem auto;
   text-align: left;
 }
 #numResults, .filter{	
   text-align: left;
   color: #6c6a72;
+  margin: auto;
 }
 
 .filter {
@@ -184,6 +199,7 @@ img{
 }
 
 #select {
+  position: relative;
   border: 1.5px solid #f0f0f2;
   background-color: #ffffff;
   height: 32px;
@@ -199,9 +215,6 @@ img{
   border-radius: 6px;
 }
 
-#patientFilterSelect:active {
-  border: none;
-}
 
 #newButton{	
   border: none;
@@ -223,5 +236,38 @@ img{
 }
 #riskText{	
   text-align: left;
-  flex: 3;
+  flex: 5;
+  padding-left: .75rem;
+}
+.returnBox {
+  width: 100%
+}
+.backButton {
+  position: relative;
+  background-color: transparent;
+  padding: 1em 0em 0 1.5em;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.backButton::before {
+  content: '';
+  position: absolute;
+  border-top: 3px solid #000;
+  width: 14px; 
+  left: 0;
+  bottom: 13px;
+  rotate: 135deg;
+}
+
+.backButton::after {
+  content: '';
+  position: absolute;
+  border-top: 3px solid #000;
+  width: 14px; 
+  left: 0;
+  bottom: 5px;
+  rotate: 45deg;
 }

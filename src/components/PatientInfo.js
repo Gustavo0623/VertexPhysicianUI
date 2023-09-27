@@ -2,12 +2,14 @@ import React from "react";
 
 function PatientInfo ({iconDetails}) {
 
+    const patientData = Object.values(iconDetails)
+
     // function that will determine the className of each icon to determine the color depending on the iconDetails prop value that will change with every user
     const setClass = (detail) => {
-        // values are as follows, (0 = green/good, 1 = yellow/average, 2 red/needs improvement)
-        if (detail === 0) {
+        // values are as follows, ('low' = green/good, 'medium' = yellow/average, 'high' red/high risk )
+        if (detail === 'low') {
             return 'icon green'
-        } else if (detail === 1) {
+        } else if (detail === 'medium') {
             return 'icon yellow'
         } else 
         return 'icon red'
@@ -20,7 +22,7 @@ function PatientInfo ({iconDetails}) {
 
         <div className='expansion'>
             {
-                iconDetails.map((detail, index) => (
+                patientData.map((detail, index) => (
                     <div className='detailGroup' key={index}>
                         <p className='detail'>{imageDescriptions[index]}</p>
                         <div className={setClass(detail)}>
@@ -28,7 +30,7 @@ function PatientInfo ({iconDetails}) {
                         </div>
                     </div>
                 ))
-            }
+                }
         </div>
     )
 

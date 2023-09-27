@@ -1,11 +1,10 @@
 import React from "react";
+import BackButton from "../components/BackBtn";
 // import { useParams } from "react-router-dom";
 import PatientInfo from "../components/PatientInfo";
 
 function Patient ({currentUser}) {
     // const { patientName } =  useParams()
-
-    console.log(currentUser)
 
     // TODO : API Fetch Request Based on URL Parameters ***
 
@@ -19,8 +18,9 @@ function Patient ({currentUser}) {
 
     return (
         <div className='patientPage'> 
-            <h1>{currentUser[0]}</h1>
-            { currentUser ? <PatientInfo iconDetails={currentUser[1]}/> : null }
+            <BackButton/>
+            <h1 className='name'>{currentUser.name}</h1>
+            { currentUser ? <PatientInfo iconDetails={currentUser.riskFactors}/> : null }
         </div>
     )
 

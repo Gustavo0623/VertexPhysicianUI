@@ -1,25 +1,53 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Icons from '../components/Icons'
 import {Outlet, Link} from 'react-router-dom'
 
-function PatientList ({userData, setCurrentUser}) {
+function PatientList ({setCurrentUser}) {
 // users array (Temporary Placeholder Values)
 // for each value in users array, value[0] = username, & value[1] = array containing the details of each user in the order of home, meals, and heart health or heart rate where 0 = good / 1 = okay / 2 = needs improvement
 // depending on (Actual) data the values will be adjusted and gathered via fetch request to server.
-let users = userData
-
+//let users = userData
 const [selectedOption, setSelectedOption] = useState('');
+
+// fetch patient data
+const [patientData, setPatientData] = useState(null);
+
+async function fetchData() {
+    try {
+        const response = await fetch('./patients.json'); // Relative URL
+        if (response.ok) {
+        const data = await response.json();
+        setPatientData(data);
+        } else {
+        console.error('Failed to fetch data');
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+useEffect(() => {
+    fetchData(); // Fetch data when the component is mounted
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
 
 const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
 };
+
+
+if (!patientData) {
+    // TODO : edit loading screen while waiting for patient information
+    return <div>Loading...</div>;
+}
 
 return (
     <div id="bodyBracket">
         <h1 id="patientsText">Patients</h1>
         <div id="patientListHeader">
             <div id="result">
-                <p id="numResults">2 results</p>
+                <p id="numResults">{patientData.length} results</p>
             </div>
             <div id='filterBox'>
                 <div id='select'>
@@ -45,17 +73,17 @@ return (
                 <div id="riskText">Risks</div>
             </div>
         {/* User container with username and other details */}
-        {users.map((user, index) => (
+        {patientData.map((user, index) => (
             <div className='userDetails' key={index} > 
                 
                 <Link className='userFlexBlock' onClick={() => {
                     setCurrentUser(user);
                     }} 
-                    to={`./${user[0]}`}
+                    to={`./${user.MRN}`}
                 >
-                    <p className='userName'>{user[0]}</p>
-                    <p className='userMRN'>256747</p>
-                    <Icons iconDetails={user[1]}/>
+                    <p className='userName'>{user.name}</p>
+                    <p className='userMRN'>{user.MRN}</p>
+                    <Icons iconDetails={user.riskFactors}/>
                 </Link>
             </div>
         ))}

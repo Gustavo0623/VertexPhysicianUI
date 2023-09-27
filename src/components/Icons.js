@@ -3,12 +3,16 @@ import React from 'react'
 
 function Icons ({iconDetails}) {
 
+    const imageURL = ['images/home.png', 'images/drink.png', 'images/heart.png', 'images/car.png', 'images/lifeline.png', 'images/sad.png', 'images/shield.png', 'images/pills-bottle.png', ]
+    const imageDescriptions = ['Housing/Utilities Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+
+    const patientData = Object.values(iconDetails)
     // function that will determine the className of each icon to determine the color depending on the iconDetails prop value that will change with every user
     const setClass = (detail) => {
-        // values are as follows, (0 = green/good, 1 = yellow/average, 2 red/needs improvement)
-        if (detail === 0) {
+        // values are as follows, ('low' = green/good, 'medium' = yellow/average, 'high' red/high risk )
+        if (detail === 'low') {
             return 'icon green'
-        } else if (detail === 1) {
+        } else if (detail === 'medium') {
             return 'icon yellow'
         } else 
         return 'icon red'
@@ -18,17 +22,17 @@ function Icons ({iconDetails}) {
 
             <div className='iconContainer'>
 
-                <div className={ setClass(iconDetails[0]) }>
-                    <img src='images/home.png' alt='home'/>
-                </div>
-                
-                <div className={ setClass(iconDetails[1]) }>
-                    <img src='images/drink.png' alt='food'/>
-                </div>
-
-                <div className={ setClass(iconDetails[2]) }>
-                    <img src='images/heart.png' alt='health'/>
-                </div>
+                {
+                patientData.map((detail, index) => (
+                    detail !== 'low' ? 
+                    <div className='detailGroup' key={index}>
+                        <div className={setClass(detail)}>
+                            <img src={imageURL[index]} alt={imageDescriptions[index]}/>
+                        </div>
+                    </div>
+                    : null
+                ))
+                }
                 
             </div>
 
