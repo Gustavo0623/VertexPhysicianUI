@@ -24,7 +24,6 @@ function PatientInfo ({iconDetails}) {
             {
                 patientData.map((detail, index) => (
                     <div className='detailGroup' key={index}>
-                        <p className='detail'>{imageDescriptions[index]}</p>
                         <div className={setClass(detail)}>
                             <img src={imageURL[index]} alt={imageDescriptions[index]}/>
                         </div>

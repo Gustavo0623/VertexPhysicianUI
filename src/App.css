@@ -1,4 +1,6 @@
-
+body{
+  background-color: #F9F9FA;
+}
 
 .App-logo {
   height: 40vmin;
@@ -103,9 +105,8 @@ img{
 }
 
 .expansion{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 1rem;
+  display: flex;
+  justify-content: flex-start;
   margin-bottom: 1rem;
 }
 
@@ -131,6 +132,7 @@ img{
 .patientPage {
   width: calc(100% - 5em);
   margin: auto;
+  
 }
 
 .titleBox {
@@ -183,10 +185,13 @@ img{
   z-index: 2;
 }
 
-#patientsText, .name{
+#patientsText, .name, .mrn{
   width: calc(100% - 2.5em);
   margin: .5rem auto;
   text-align: left;
+}
+.mrn{
+  color: #6B707B;
 }
 #numResults, .filter{	
   text-align: left;
@@ -270,4 +275,25 @@ img{
   left: 0;
   bottom: 5px;
   rotate: 45deg;
+}
+.buttonBar{
+  background-color: white;
+  padding: 15px;
+}
+.dropButton{
+  background-color: white;
+  border-radius: 100%;
+  margin: 4px;
+  margin-left: 40px;
+  border: 0px solid black;
+  background-color: #F1F2F4;
+}
+.assessmentIcons{
+  background-color: white;
+}
+#patientDetailBox{
+  padding: 30px;
+  padding-bottom: 50px;
+  margin: 40px;
+  background-color: white;
 }
