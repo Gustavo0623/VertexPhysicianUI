@@ -27,7 +27,7 @@ function Icons ({iconDetails}) {
                     detail !== 'low' ? 
                     <div className='detailGroup' key={index}>
                         <div className={setClass(detail)}>
-                            <img src={imageURL[index]} alt={imageDescriptions[index]}/>
+                            <img className='smallIcon' src={imageURL[index]} alt={imageDescriptions[index]}/>
                         </div>
                     </div>
                     : null

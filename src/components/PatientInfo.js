@@ -1,6 +1,6 @@
 import React from "react";
 
-function PatientInfo ({iconDetails}) {
+function PatientInfo ({iconDetails, imageDetails}) {
 
     const patientData = Object.values(iconDetails)
 
@@ -15,19 +15,21 @@ function PatientInfo ({iconDetails}) {
         return 'icon red'
     }
 
-    const imageURL = ['../images/home.png', '../images/drink.png', '../images/heart.png', '../images/car.png', '../images/lifeline.png', '../images/sad.png', '../images/shield.png', '../images/pills-bottle.png', ]
-    const imageDescriptions = ['Housing/Utilities Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+    const imageURL = imageDetails[0]
+    const imageDescriptions = imageDetails[1]
     
     return (
 
         <div className='expansion'>
             {
                 patientData.map((detail, index) => (
+                    detail !== 'low' ? 
                     <div className='detailGroup' key={index}>
                         <div className={setClass(detail)}>
-                            <img src={imageURL[index]} alt={imageDescriptions[index]}/>
+                            <img className='smallIcon' src={imageURL[index]} alt={imageDescriptions[index]}/>
                         </div>
                     </div>
+                    : null
                 ))
                 }
         </div>
