@@ -3,13 +3,13 @@
         "MRN": 123456,
         "name": "Christine Chapel",
         "riskFactors": {
-            "foodInsecurity": "high",
-            "housingInsecurity": "medium",
-            "emotionalDistress": "low",
+            "foodInsecurity": "low",
+            "housingInsecurity": "high",
             "transportationInaccessibility": "medium",
+            "interpersonalSafetyRisk": "medium",
             "suicideRisk": "medium",
             "depressionScore": "medium",
-            "interpersonalSafetyRisk": "medium",
+            "emotionalDistress": "low",
             "substanceUse": "medium"
         },
         "questionnaireResponses": {
@@ -45,11 +45,11 @@
         "riskFactors": {
             "foodInsecurity": "medium",
             "housingInsecurity": "low",
-            "emotionalDistress": "medium",
             "transportationInaccessibility": "high",
+            "interpersonalSafetyRisk": "medium",
             "suicideRisk": "low",
             "depressionScore": "low",
-            "interpersonalSafetyRisk": "medium",
+            "emotionalDistress": "medium",
             "substanceUse": "low"
         },
         "questionnaireResponses": {
@@ -85,11 +85,11 @@
         "riskFactors": {
             "foodInsecurity": "low",
             "housingInsecurity": "medium",
-            "emotionalDistress": "low",
             "transportationInaccessibility": "low",
+            "interpersonalSafetyRisk": "low",
             "suicideRisk": "low",
             "depressionScore": "low",
-            "interpersonalSafetyRisk": "low",
+            "emotionalDistress": "low",
             "substanceUse": "medium"
         }, "questionnaireResponses": {
             "q1": "yes",
@@ -124,11 +124,11 @@
         "riskFactors": {
             "foodInsecurity": "medium",
             "housingInsecurity": "high",
-            "emotionalDistress": "high",
             "transportationInaccessibility": "high",
+            "interpersonalSafetyRisk": "high",
             "suicideRisk": "high",
             "depressionScore": "high",
-            "interpersonalSafetyRisk": "high",
+            "emotionalDistress": "high",
             "substanceUse": "high"
         },
         "questionnaireResponses": {

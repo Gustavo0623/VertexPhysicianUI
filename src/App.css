@@ -329,10 +329,11 @@ body{
   position: absolute;
   border-top: 2px solid #6B707B;
   width: .8em; 
-  left: calc(8px + 2em);
+  left: calc(7.5px + 2em);
   top: 2.1em;
   rotate: 135deg;
   z-index: 1;
+  transition: all 0.5s ease-in;
 }
 
 .dropButton::after {
@@ -340,9 +341,18 @@ body{
   position: absolute;
   border-top: 2px solid #6B707B;
   width: .8em; 
-  left: calc(8px + 2em);
+  left: calc(7.5px + 2em);
   top: 1.6em;
   rotate: 45deg;
+  transition: all 0.5s ease-in;
+}
+
+.dropButton:active::before {
+  top: 1.9em;
+}
+
+.dropButton:active::after {
+   top: 1.9em;
 }
 
 .arrowBG {

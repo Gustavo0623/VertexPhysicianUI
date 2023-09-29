@@ -3,8 +3,8 @@ import React from 'react'
 
 function Icons ({iconDetails}) {
 
-    const imageURL = ['images/home.png', 'images/drink.png', 'images/heart.png', 'images/car.png', 'images/lifeline.png', 'images/sad.png', 'images/shield.png', 'images/pills-bottle.png', ]
-    const imageDescriptions = ['Housing/Utilities Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+    const imageURL = ['images/drink.png', 'images/home.png', 'images/car.png', 'images/shield.png', 'images/lifeline.png', 'images/sad.png', 'images/heart.png', 'images/pills-bottle.png', ]
+    const imageDescriptions = ['Food Security', 'Housing/Utilities Security', 'Transportation Security', 'Interpersonal Safety', 'Suicide', 'Depression', 'Emotional Health', 'Substance Use']
 
     const patientData = Object.values(iconDetails)
     // function that will determine the className of each icon to determine the color depending on the iconDetails prop value that will change with every user

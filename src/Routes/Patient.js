@@ -5,8 +5,8 @@ import RiskFactors from "../components/RiskFactors";
 
 function Patient ({currentUser}) {
 
-    const imageURL = ['../images/home.png', '../images/drink.png', '../images/heart.png', '../images/car.png', '../images/lifeline.png', '../images/sad.png', '../images/shield.png', '../images/pills-bottle.png', ]
-    const imageDescriptions = ['Housing Security', 'Food Security', 'Emotional Health', 'Transportation Security', 'Suicide', 'Depression', 'Interpersonal Safety', 'Substance Use']
+    const imageURL = ['../images/drink.png', '../images/home.png', '../images/car.png', '../images/shield.png', '../images/lifeline.png', '../images/sad.png', '../images/heart.png', '../images/pills-bottle.png', ]
+    const imageDescriptions = ['Food Security', 'Housing Security', 'Transportation Security', 'Interpersonal Safety', 'Suicide', 'Depression', 'Emotional Health', 'Substance Use']
 
     // TODO : API Fetch Request Based on URL Parameters ***
 
