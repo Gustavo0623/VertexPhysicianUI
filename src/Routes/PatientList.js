@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Icons from '../components/Icons'
+import Loading from '../components/Loading';
 import {Outlet, Link} from 'react-router-dom'
 
 function PatientList ({setCurrentUser}) {
@@ -28,6 +29,7 @@ async function fetchData() {
 
 useEffect(() => {
     fetchData(); // Fetch data when the component is mounted
+    // next line disables error message
     // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
@@ -39,7 +41,7 @@ const handleOptionChange = (event) => {
 
 if (!patientData) {
     // TODO : edit loading screen while waiting for patient information
-    return <div>Loading...</div>;
+    return <Loading/>;
 }
 
 return (
