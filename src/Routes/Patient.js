@@ -1,5 +1,6 @@
 import React from "react";
 import BackButton from "../components/BackBtn";
+import Loading from "../components/Loading";
 import PatientInfo from "../components/PatientInfo";
 import RiskFactors from "../components/RiskFactors";
 
@@ -8,14 +9,14 @@ function Patient ({currentUser}) {
     const imageURL = ['../images/drink.png', '../images/home.png', '../images/car.png', '../images/shield.png', '../images/lifeline.png', '../images/sad.png', '../images/heart.png', '../images/pills-bottle.png', ]
     const imageDescriptions = ['Food Security', 'Housing Security', 'Transportation Security', 'Interpersonal Safety', 'Suicide', 'Depression', 'Emotional Health', 'Substance Use']
 
-    // TODO : API Fetch Request Based on URL Parameters ***
+    // TODO : API Fetch Request for community resources and survey information ***
 
     // TODO : Arrange data into array to pass onto PatientInfo Component
 
 
     if (!currentUser) {
         // TODO : edit loading screen while waiting for patient information
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
 
     return (
