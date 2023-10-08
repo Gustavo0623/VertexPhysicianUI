@@ -20,7 +20,7 @@ function Patient ({currentUser}) {
 
     async function fetchData() {
         try {
-            const url = '../resources.json' // 'http://160.94.179.166:2260/allResources'; // Relative URL
+            const url = /*'../resources.json'*/ 'http://160.94.179.166:2260/allResources'//'https://api.humorapi.com/jokes/search'; // Relative URL
             // const headers = new Headers();
             // headers.append('Content-Type', 'application/json'); // You can add other headers if needed
         
