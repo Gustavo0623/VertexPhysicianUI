@@ -6,10 +6,6 @@ function CarePlan ({riskFactors, resources}) {
     const riskFactorValue = Object.values(riskFactors)
     const risk = Object.keys(resources)
     const resourceDetails = Object.values(resources)
-
-    console.log(riskFactorValue)
-    console.log(risk)
-    console.log(resourceDetails)
     // Set variable to hold the patient CarePlan data
 
     return (

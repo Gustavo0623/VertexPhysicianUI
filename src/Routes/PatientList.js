@@ -4,18 +4,13 @@ import Loading from '../components/Loading';
 import {Outlet, Link} from 'react-router-dom'
 
 function PatientList ({setCurrentUser}) {
-    // users array (Temporary Placeholder Values)
-    // for each value in users array, value[0] = username, & value[1] = array containing the details of each user in the order of home, meals, and heart health or heart rate where 0 = good / 1 = okay / 2 = needs improvement
-    // depending on (Actual) data the values will be adjusted and gathered via fetch request to server.
-    //let users = userData
     const [selectedOption, setSelectedOption] = useState('');
-
-    // fetch patient data
     const [patientData, setPatientData] = useState(null);
-
+    
+    // fetch patient data
     async function fetchData() {
         try {
-            const url = './patients2.json' // 'http://160.94.179.166:2270/allPatientData'; // Relative URL
+            const url = 'http://160.94.179.166:2270/allPatientData' 
             const headers = new Headers();
             headers.append('Content-Type', 'application/json'); // You can add other headers if needed
         
@@ -50,8 +45,8 @@ function PatientList ({setCurrentUser}) {
     };
 
 
+    // TODO : edit loading screen while waiting for patient information
     if (!patientData) {
-        // TODO : edit loading screen while waiting for patient information
         return <Loading/>;
     } else return (
         <div id="bodyBracket">

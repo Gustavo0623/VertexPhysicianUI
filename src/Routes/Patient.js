@@ -16,20 +16,18 @@ function Patient ({currentUser}) {
     const [carePlanState, setCarePlanState] = useState(false)
     const [resources, setResources] = useState(null)
 
-    // TODO : API Fetch Request for community resources and survey information ***
-
     async function fetchData() {
         try {
-            const url = /*'../resources.json'*/ 'http://160.94.179.166:2260/allResources'//'https://api.humorapi.com/jokes/search'; // Relative URL
-            // const headers = new Headers();
-            // headers.append('Content-Type', 'application/json'); // You can add other headers if needed
+            const url = 'http://160.94.179.166:2260/allResources';
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json'); // You can add other headers if needed
         
-            // const requestOptions = {
-            //     method: 'GET',
-            //     headers: headers,
-            // };
+            const requestOptions = {
+                method: 'GET',
+                headers: headers,
+            };
         
-            const response = await fetch(url/*, requestOptions*/);
+            const response = await fetch(url, requestOptions);
         
             if (response.ok) {
                 const data = await response.json();
@@ -48,8 +46,6 @@ function Patient ({currentUser}) {
         // next line disables error message
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    // TODO : Arrange data into array to pass onto PatientInfo Component
-
 
     if (!currentUser) {
         // TODO : edit loading screen while waiting for patient information
@@ -87,7 +83,7 @@ function Patient ({currentUser}) {
                     <span className="arrowBG"></span>
                     <p className="dropText">Trauma-Informed Care Plan</p>
                 </button>
-                {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources}/> : null}
+                {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/> : null}
             </div>
             <RiskFactors riskFactors={currentUser.riskFactors} imageDetails={[imageURL, imageDescriptions]}/>
         </div>
