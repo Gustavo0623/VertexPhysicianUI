@@ -429,16 +429,37 @@ body{
 
 /* Asssessment Component */
 .assessment {
-  padding: 0 2em;
+  padding: 2em;
   margin: 1em 0;
   border-radius: 8px;
   background-color: #ffffff;
   display: grid;
   grid-template-columns: 
     repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
 }
+
+.questionBox {
+  border: 2px solid #f1f2f4;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 1em
+}
+
+.response {
+  border-top: 2px solid #f1f2f4;
+  margin: 0;
+  padding: 1em 0;
+
+}
+
 .question {
   font-weight: bold;
+  margin: 0 0 1em 0;
+  text-align: justify;
 }
 
 /* CarePlan Component */
