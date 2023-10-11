@@ -1,24 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Loading from "./Loading";
 
-function RiskFactors ({riskFactors, imageDetails}) {
+function RiskFactors ({riskFactors, imageDetails, questionDetails, responseDetails}) {
     
-    const factors = Object.keys(riskFactors)
     const riskAlerts = Object.values(riskFactors)
     const imageURL = imageDetails[0]
     const imageDescriptions = imageDetails[1]
+    // Arrange questions arrays
+
+    const [questionsArray, setQuestionsArray] = useState([])
+    const [mappingQuestions, setMappingQuestions] = useState([])
+    const [responseArray, setResponseArray] = useState([])
+    const setArray = (newArray, originalArray) => {
+        newArray([
+            originalArray.slice(0,3),
+            originalArray.slice(3,7),
+            originalArray.slice(7,9),
+            originalArray.slice(9,12),
+            originalArray.slice(12,17),
+            originalArray.slice(17,19),
+            originalArray.slice(19,20),
+            originalArray.slice(20,24)
+        ])
+    }
+
+    useEffect(()=> {
+        setArray(setQuestionsArray, questionDetails)
+        setArray(setResponseArray, responseDetails.slice(2))
+    }, [])
+
 
     // Create new arrays to store filtered results
-    const filteredFactors = [];
     const filteredRiskAlerts = [];
     const filteredURLs = [];
     const filteredDescriptions = [];
+    const filteredQuestions = []
+    const filteredResponses = []
 
-    for (let i = 0; i < riskAlerts.length; i++) {
-        if (riskAlerts[i] !== 'low') {
-            filteredFactors.push(factors[i]);
-            filteredRiskAlerts.push(riskAlerts[i]);
-            filteredURLs.push(imageURL[i]);
-            filteredDescriptions.push(imageDescriptions[i]);
+    if (riskFactors && imageDetails && questionDetails && responseDetails) {
+        for (let i = 0; i < riskAlerts.length; i++) {
+            if (riskAlerts[i] !== 'low') {
+                filteredRiskAlerts.push(riskAlerts[i]);
+                filteredURLs.push(imageURL[i]);
+                filteredDescriptions.push(imageDescriptions[i]);
+                filteredQuestions.push(questionsArray[i])
+                filteredResponses.push(responseArray[i])
+            }
         }
     }
 
@@ -38,20 +65,25 @@ function RiskFactors ({riskFactors, imageDetails}) {
 
                 <div className='riskBoxContainer'>
                     {
-                    filteredRiskAlerts.map((risk, index) => (
-                        <div className='riskBox' key={index}>
+                    filteredRiskAlerts.map((risk, riskIndex) => (
+                        
+                        <div className='riskBox' key={riskIndex}>
                             <div className={setClass(risk)}>
-                                <img className='largeIcon' src={filteredURLs[index]} alt={filteredDescriptions[index]}/>
+                                <img className='largeIcon' src={filteredURLs[riskIndex]} alt={filteredDescriptions[riskIndex]}/>
                             </div>
                             <div className='riskDescriptionBox'>
-                                <p className='header'>{filteredDescriptions[index]}</p>
-                                <p className='riskDescriptionText'>Risk: { risk === 'high' ? 'Iminent' : 'Moderate' }</p>
-                                <p className='riskDescriptionText'>Question 1</p>
-                                <p className='riskDescriptionText'><strong>Answer</strong>: Yes/No</p>
-                                <p className='riskDescriptionText'>Question 2</p>
-                                <p className='riskDescriptionText'><strong>Answer</strong>: Yes/No</p>
-                                <p className='riskDescriptionText'>Question 3</p>
-                                <p className='riskDescriptionText'><strong>Answer</strong>: Yes/No</p>
+                                <p className='header'>{filteredDescriptions[riskIndex]}</p>
+                                <p className='riskDescriptionText'><b>Risk:</b> { risk }</p>
+                                {
+                                    filteredQuestions[riskIndex] ? 
+                                        filteredQuestions[riskIndex].map((question, questionIndex) => (
+                                            <div className="riskQuestionBox" key={questionIndex}>
+                                                <p className='question'>{questionIndex + 1}. {question}</p>
+                                                <p className='questionResponse'><b>Response:</b> {filteredResponses[riskIndex][questionIndex]}</p>
+                                            </div>
+                                        )) 
+                                    : <Loading/>
+                                }
                             </div>
                         </div>
                     ))

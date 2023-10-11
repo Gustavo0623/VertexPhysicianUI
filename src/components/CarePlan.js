@@ -12,7 +12,7 @@ function CarePlan ({riskFactors, resources}) {
         <div className='carePlan'>
             {riskFactorValue.map((value, index)=> (
                 value !== 'low' ?
-                    <div key={index}>
+                    <div className='resourceBox' key={index}>
                         <p className='risk'>{risk[index]}</p>
                         <div className='resourceDetailBox'>
                             {resourceDetails[index].map((resource, index) => (

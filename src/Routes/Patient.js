@@ -15,6 +15,32 @@ function Patient ({currentUser}) {
     const [assessmentState, setAssessmentState] = useState(false)
     const [carePlanState, setCarePlanState] = useState(false)
     const [resources, setResources] = useState(null)
+    const questionsArray = [
+        'Do you have food for tonight?',
+        'Within the past 12 months, did you worry that your food would run out before you got money to buy more?', 
+        'Within the past 12 months, did the food you bought just not last and you didn\'t have money to get more?', 
+        'Do you have somewhere safe to sleep tonight?', 
+        'Do you have housing?', 
+        'Are you worried about losing your housing?', 
+        'Within the past 12 months, have you or your family members you live with been unable to get utilities (heat, electricity) when it was really needed?', 
+        'Are your currently able to access reliable transportation to receive needed care (e.g. transportation to medical appointments, pharmacies for medications, other needed services)?', 
+        'Within the past 12 months, has lack of transportation kept you from medical appointments, getting your medicines, non-medical meetings or appointments, work, or from getting things that you need?', 
+        'Do you feel physically and emotionally safe where you currently live', 
+        'Within the past 12 months, have you been hit, slapped, kicked or otherwise physically hurt by someone?', 
+        'Within the past 12 months, have you been humiliated or emotionally abused in other ways by your partner or ex-partner?', 
+        'Are you having thoughts of killing yourself right now?', 
+        'In the past few weeks, have you wished you were dead?', 
+        'In the past few weeks, have you felt that you or your family would be better off if you were dead?', 
+        'In the past week, have you been having thoughts about killing yourself?', 
+        'Have you ever tried to kill yourself?', 
+        'Little interest or pleasure in doing things?', 
+        'Feeling down, depressed, or hopeless?', 
+        'Stress means a situation in which a person feels tense, restless, nervous, or anxious, or is unable to sleep at night because his or her mind is troubled all the time. Do you feel this kind of stress these days?', 
+        'How many times in the past 12 months have you had 5 or more drinks in a day (males) or 4 or more drinks in a day (females)? (One drink is 12 ounces of beer, 5 ounces of wine, or 1.5 ounces of 80-proof spirits)', 
+        'How many times in the past 12 months have you used prescription drugs for non-medical reasons?', 
+        'How many times in the past 12 months have you used illegal drugs?', 
+        'How many times in the past 12 months have you used tobacco products (like cigarettes, cigars, snuff, chew, electronic cigarettes)?'
+    ]
 
     async function fetchData() {
         try {
@@ -64,28 +90,32 @@ function Patient ({currentUser}) {
                 </div>
             </div>
             <div className="buttonBar">
-                <button className="dropButton" onClick={() => {
-                    !assessmentState ? 
-                        setAssessmentState(true) 
-                    :
-                        setAssessmentState(false)
-                }}>
-                    <span className="arrowBG"></span>
-                    <p className="dropText">Psychosocial Assessment</p> 
-                </button>
-                {assessmentState ? <Assessment currentUser={currentUser}/> : null}
-                <button className="dropButton" onClick={() => {
-                    !carePlanState ? 
-                        setCarePlanState(true)
-                    :
-                        setCarePlanState(false)
-                }}>
-                    <span className="arrowBG"></span>
-                    <p className="dropText">Trauma-Informed Care Plan</p>
-                </button>
-                {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/> : null}
+                <div className='buttonBox'>
+                    <button className={!assessmentState ? "dropButton" : "dropButton active"} onClick={() => {
+                        !assessmentState ? 
+                            setAssessmentState(true) 
+                        :
+                            setAssessmentState(false)
+                    }}>
+                        <span className="arrowBG"></span>
+                        <p className="dropText">Psychosocial Assessment</p> 
+                    </button>
+                    {assessmentState ? <Assessment currentUser={currentUser} questionDetails={questionsArray}/> : null}
+                </div>
+                <div className='buttonBox'>
+                    <button className={!carePlanState ? "dropButton" : "dropButton active"} onClick={() => {
+                        !carePlanState ? 
+                            setCarePlanState(true)
+                        :
+                            setCarePlanState(false)
+                    }}>
+                        <span className="arrowBG"></span>
+                        <p className="dropText">Trauma-Informed Care Plan</p>
+                    </button>
+                    {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/> : null}
+                </div>
             </div>
-            <RiskFactors riskFactors={currentUser.riskFactors} imageDetails={[imageURL, imageDescriptions]}/>
+            <RiskFactors riskFactors={currentUser.riskFactors} imageDetails={[imageURL, imageDescriptions]} questionDetails={questionsArray} responseDetails={Object.values(currentUser.questionnaireResponses)}/>
         </div>
 
     )

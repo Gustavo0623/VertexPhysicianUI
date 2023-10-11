@@ -298,8 +298,13 @@ body{
 .buttonBar{
   display: flex;
   flex-direction: column;
+  gap: 1em;
   overflow: hidden;
   margin-bottom: 2em;
+}
+.buttonBox {
+  display: flex;
+  flex-direction: column;
 }
 
 .dropText {
@@ -317,11 +322,17 @@ body{
   cursor: pointer;
   padding: 1em 0;
 }
-.dropButton:first-child {
+.active {
+  border-bottom: 2px solid #f1f2f4;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+}
+
+.buttonBox:first-child {
   margin-top: 1em;
 }
 
-.dropButton:last-child {
+.buttonBox:last-child {
   margin-bottom: 1em;
 }
 .dropButton::before {
@@ -382,7 +393,7 @@ body{
 .riskBoxContainer {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
   padding: 2em;
   background-color: white;
   border-radius: 8px;
@@ -411,7 +422,6 @@ body{
   justify-content: center;
   align-items: center;
   width: 50px;
-  height: 50px;
   border-radius: 100%;
   padding: .5em;
   border: 2px solid black;
@@ -424,19 +434,29 @@ body{
 }
 
 .riskDescriptionText {
-  margin: 0;
+  margin: 1em 0;
+  text-transform: capitalize;
+}
+
+.riskQuestionBox {
+  border-bottom: 2px solid #f1f2f4;
+}
+.riskQuestionBox:last-child {
+  border-bottom: none;
+}
+.riskBox:last-child > .riskDescriptionBox > .riskQuestionBox:last-child > .questionResponse {
+  margin: 1em 0 0 0;
 }
 
 /* Asssessment Component */
 .assessment {
   padding: 2em;
-  margin: 1em 0;
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   background-color: #ffffff;
   display: grid;
   grid-template-columns: 
     repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2em;
+  gap: 1em;
 }
 
 .questionBox {
@@ -452,8 +472,7 @@ body{
 .response {
   border-top: 2px solid #f1f2f4;
   margin: 0;
-  padding: 1em 0;
-
+  padding: 1em 0 0 0;
 }
 
 .question {
@@ -465,18 +484,45 @@ body{
 /* CarePlan Component */
 
 .carePlan {
-  padding: 0 2em;
-  margin: 1em 0;
-  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 2em;
+  border-radius: 0 0 8px 8px;
   background-color: #ffffff;
 }
 .risk {
   font-weight: bold;
+  margin: 0;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #f1f2f4;
+}
+
+.resourceBox {
+  border: 2px solid #f1f2f4;
+  text-transform: capitalize;
+  border-radius: 8px;
+  padding: 1em;
+  flex-grow: 1;
+  flex-basis: 400px;
 }
 
 .resourceDetailBox {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 0 2em;
+  padding: 0 1em;
+}
+
+.resourceDetails {
+  border-bottom: 2px solid #f1f2f4;
+  text-transform: capitalize;
+}
+
+.resourceDetails:last-child {
+  border-bottom: none;
+}
+
+.resourceDetails:last-child > .resourceDetail:last-child {
+  margin: 1em 0 0 0;
 }
