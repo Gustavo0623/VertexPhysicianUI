@@ -51,23 +51,25 @@ body{
 }
 
 #userBox {
-  width: calc(100% - 5em);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex-grow: 1;
   gap: .5em;
-  padding: 1em 0;
+  padding: 1em 2em;
   background-color: #ffffff;
-  margin: 1em auto;
+  margin: 1em 2.5rem;
   border-radius: 8px;
+  overflow: auto;
 }
 
 .userDetails {
-  display: grid;
-  width: calc(100% - 5em);
+  min-width: 400px;
+  width: 100%;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 0;
+  margin: 0;
   border-bottom: 2px solid #f9f9fa;
 }
 
@@ -75,8 +77,10 @@ body{
   border-bottom: none;
 }
 .userFlexBlock{
-  display: grid;
-  grid-template-columns: 2fr 3fr 5fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   gap: 1rem;
   cursor: pointer;
   text-decoration: none;
@@ -84,9 +88,9 @@ body{
 }
 .iconContainer {
   display: flex;
+  flex: 5;
   justify-content: flex-start;
   align-items: center;
-  overflow: auto;
   gap:.5em;
 }
 
@@ -126,8 +130,15 @@ body{
 
 .userName, .userMRN{
   margin: auto;
-  width: 100%;
   text-align: left;
+}
+
+.userName {
+  flex: 3;
+}
+
+.userMRN{
+  flex: 3;
 }
 
 .patientPage {
@@ -138,11 +149,13 @@ body{
 
 .titleBox {
   display: flex;
-  width: calc(100% - 5em);
-  padding: 1rem;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 400px;
+  padding: 1rem 0;
+  margin: 0;
   gap: 1rem;
   flex-direction: row;
-  justify-content: space-evenly;
   font-weight: bold;
 }
 
@@ -257,7 +270,7 @@ body{
 }
 #nameText{
   text-align: left;
-  flex: 2;
+  flex: 3;
 }
 #MRNText{	
   text-align: left;
@@ -266,6 +279,7 @@ body{
 #riskText{	
   text-align: left;
   flex: 5;
+  min-width: 212px;
 }
 .returnBox {
   width: 100%
@@ -273,7 +287,8 @@ body{
 .backButton {
   position: relative;
   background-color: transparent;
-  padding: 1em 0em 0 1.5em;
+  padding: 0 0 0 1.5em;
+  margin-top: 1rem;
   border: none;
   font-size: 18px;
   font-weight: bold;
@@ -392,7 +407,7 @@ body{
   background-color: white;
 }
 #patientDetailBox{
-  margin: .5rem 0 2em;
+  margin: 1rem 0 2em;
   border-radius: 8px;
   padding: 2em;
   background-color: white;
