@@ -57,10 +57,10 @@ body{
   justify-content: center;
   align-items: center;
   gap: .5em;
-  padding-bottom: 1em;
+  padding: 1em 0;
   background-color: #ffffff;
-  margin: auto;
-  border-radius: 14px;
+  margin: 1em auto;
+  border-radius: 8px;
 }
 
 .userDetails {
@@ -167,15 +167,16 @@ body{
 
 #filterBox{
   display: flex;
+  flex-wrap: wrap;
   flex-grow: 1;
-  flex-basis: 350px;
+  flex-basis: 450px;
   gap: 1rem;
 }
 
 #dropdownArrow {
   position: absolute;
   top: 50%;
-  right: .8em; /* Adjust the right position as needed */
+  right: 10px; /* Adjust the right position as needed */
   transform: translateY(-50%);
   width: 0;
   height: 0;
@@ -229,6 +230,7 @@ body{
   background-color: #ffffff;
   height: 32px;
   flex-grow: 3;
+  flex-basis: 300px;
   border-radius: 6px;
 }
 #patientFilterSelect{
@@ -243,8 +245,10 @@ body{
 
 #newButton{	
   border: none;
+  padding: .5em 0;
   border-radius: 6px;
   flex-grow: 1;
+  flex-basis: 100px;
   font-size: 16px;
   font-weight: bold;
   background-color: #212254;
@@ -309,7 +313,8 @@ body{
 
 .dropText {
   margin: 0;
-  padding-left: calc(25px + 3em);
+  font-size: 12px;
+  padding-left: 5rem;
   line-height: 25px;
 }
 .dropButton{
@@ -335,45 +340,53 @@ body{
 .buttonBox:last-child {
   margin-bottom: 1em;
 }
-.dropButton::before {
-  content: '';
-  position: absolute;
-  border-top: 2px solid #6B707B;
-  width: .8em; 
-  left: calc(7.5px + 2em);
-  top: 2.1em;
-  rotate: 135deg;
-  z-index: 1;
-  transition: all 0.5s ease-in;
-}
-
-.dropButton::after {
-  content: '';
-  position: absolute;
-  border-top: 2px solid #6B707B;
-  width: .8em; 
-  left: calc(7.5px + 2em);
-  top: 1.6em;
-  rotate: 45deg;
-  transition: all 0.5s ease-in;
-}
-
-.dropButton:active::before {
-  top: 1.9em;
-}
-
-.dropButton:active::after {
-   top: 1.9em;
-}
-
-.arrowBG {
+.arrowBG, .arrowUp {
   position: absolute;
   height: 25px;
   width: 25px;
   border-radius: 100%;
   background-color: #f1f2f4;
-  left: 2em;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
+.arrowBG::before, .arrowUp::before{
+  content: '';
+  position: absolute;
+  border-top: 2px solid #6B707B;
+  width: 10px; 
+  top: 47.5%;
+  right:42%;
+  z-index: 1;
+  transition: all 0.25s ease-in;
+}
+
+
+.arrowBG::after, .arrowUp::after {
+  content: '';
+  position: absolute;
+  border-top: 2px solid #6B707B;
+  width: 10px; 
+  top: 47.5%;
+  left: 42%;
+  transition: all 0.25s ease-in;
+}
+
+.arrowBG::before {
+  rotate: 45deg;
+}
+
+.arrowUp::before {
+  rotate: 135deg;
+}
+.arrowUp::after {
+  rotate: 225deg;
+}
+
+.arrowBG::after {
+  rotate: 315deg;
+}
+
 
 .assessmentIcons{
   background-color: white;

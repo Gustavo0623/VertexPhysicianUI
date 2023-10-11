@@ -97,7 +97,7 @@ function Patient ({currentUser}) {
                         :
                             setAssessmentState(false)
                     }}>
-                        <span className="arrowBG"></span>
+                        <span className={!assessmentState ? "arrowBG" : "arrowUp"}></span>
                         <p className="dropText">Psychosocial Assessment</p> 
                     </button>
                     {assessmentState ? <Assessment currentUser={currentUser} questionDetails={questionsArray}/> : null}
@@ -109,7 +109,7 @@ function Patient ({currentUser}) {
                         :
                             setCarePlanState(false)
                     }}>
-                        <span className="arrowBG"></span>
+                        <span className={!carePlanState ? "arrowBG" : "arrowUp"}></span>
                         <p className="dropText">Trauma-Informed Care Plan</p>
                     </button>
                     {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/> : null}
