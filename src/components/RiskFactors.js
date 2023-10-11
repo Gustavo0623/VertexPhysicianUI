@@ -9,7 +9,6 @@ function RiskFactors ({riskFactors, imageDetails, questionDetails, responseDetai
     // Arrange questions arrays
 
     const [questionsArray, setQuestionsArray] = useState([])
-    const [mappingQuestions, setMappingQuestions] = useState([])
     const [responseArray, setResponseArray] = useState([])
     const setArray = (newArray, originalArray) => {
         newArray([
@@ -27,7 +26,7 @@ function RiskFactors ({riskFactors, imageDetails, questionDetails, responseDetai
     useEffect(()=> {
         setArray(setQuestionsArray, questionDetails)
         setArray(setResponseArray, responseDetails.slice(2))
-    }, [])
+    }, [questionDetails, responseDetails])
 
 
     // Create new arrays to store filtered results
