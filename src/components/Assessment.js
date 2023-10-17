@@ -13,7 +13,7 @@ function Assessment ({currentUser, questionDetails}) {
         <div className='assessment'>
             {questionDetails.map((question, index)=>(
                 <div className='questionBox' key={index}>
-                    <p className='question'>{index + 1}. {question}</p>
+                    <p className='question'><b>{index + 1}.</b> {question}</p>
                     <p className='response'><b>Response:</b> {response[index]}</p>
                 </div>
             ))}

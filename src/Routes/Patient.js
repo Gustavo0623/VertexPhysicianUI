@@ -73,9 +73,14 @@ function Patient ({currentUser}) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (!currentUser) {
+    if (!currentUser || !resources) {
         // TODO : edit loading screen while waiting for patient information
-        return <Loading/>;
+        return (
+            <div id='loadingBox'>
+                <BackButton/>
+                <Loading/>
+            </div>
+        )
     }
 
     return (
@@ -112,10 +117,10 @@ function Patient ({currentUser}) {
                         <span className={!carePlanState ? "arrowBG" : "arrowUp"}></span>
                         <p className="dropText">Trauma-Informed Care Plan</p>
                     </button>
-                    {carePlanState ? <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/> : null}
                 </div>
             </div>
             <RiskFactors riskFactors={currentUser.riskFactors} imageDetails={[imageURL, imageDescriptions]} questionDetails={questionsArray} responseDetails={Object.values(currentUser.questionnaireResponses)}/>
+            <CarePlan riskFactors={currentUser.riskFactors} resources={resources.return}/>
         </div>
 
     )

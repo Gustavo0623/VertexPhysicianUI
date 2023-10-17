@@ -47,7 +47,12 @@ function PatientList ({setCurrentUser}) {
 
     // TODO : edit loading screen while waiting for patient information
     if (!patientData) {
-        return <Loading/>;
+        return (
+            
+        <div id='loadingBox'>
+            <Loading/>
+        </div>
+        )
     } else return (
         <div id="bodyBracket">
             <h1 id="patientsText">Patients</h1>
@@ -67,7 +72,7 @@ function PatientList ({setCurrentUser}) {
                             <option value="option3">Option 3</option>
                         </select>
                     </div>
-                    <button id="newButton">New</button>
+                    <a href='http://160.94.179.166:2270/' id="newButton">New</a>
                 </div>
             </div>
 

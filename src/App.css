@@ -86,6 +86,8 @@ body{
   text-decoration: none;
   color: black;
 }
+
+
 .iconContainer {
   display: flex;
   flex: 5;
@@ -181,6 +183,7 @@ body{
 #filterBox{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   flex-grow: 1;
   flex-basis: 450px;
   gap: 1rem;
@@ -258,6 +261,8 @@ body{
 
 #newButton{	
   border: none;
+  text-decoration: none;
+  text-align: center;
   padding: .5em 0;
   border-radius: 6px;
   flex-grow: 1;
@@ -267,6 +272,14 @@ body{
   background-color: #212254;
   color: #ffffff;
   cursor: pointer;
+}
+
+#newButton:hover {
+  padding: calc(.5em - 2px) 0;
+  flex-basis: 96px;
+  background-color: #ffffff;
+  color: #212254;
+  border: 2px solid #212254
 }
 #nameText{
   text-align: left;
@@ -430,7 +443,7 @@ body{
 
 .riskBox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid #f9f9fa;;
@@ -504,7 +517,6 @@ body{
 }
 
 .question {
-  font-weight: bold;
   margin: 0 0 1em 0;
   text-align: justify;
 }
@@ -516,7 +528,8 @@ body{
   flex-wrap: wrap;
   gap: 1em;
   padding: 2em;
-  border-radius: 0 0 8px 8px;
+  margin: 3rem 0;
+  border-radius: 8px;
   background-color: #ffffff;
 }
 .risk {
@@ -553,4 +566,28 @@ body{
 
 .resourceDetails:last-child > .resourceDetail:last-child {
   margin: 1em 0 0 0;
+}
+
+/* Loading */
+#loadingBox {
+  margin: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+}
+#loading {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  margin: 2rem auto;
+  border: 5px solid transparent;
+  border-top: 5px solid #212254;
+  border-bottom: 5px solid #212254;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
