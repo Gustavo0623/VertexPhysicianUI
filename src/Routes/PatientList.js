@@ -92,7 +92,7 @@ function PatientList ({setCurrentUser}) {
                         }} 
                         to={`./${user.MRN}`}
                     >
-                        <p className='userName'>{user.name}</p>
+                        <p className='userName'>{user.patientName}</p>
                         <p className='userMRN'>{user.MRN}</p>
                         <Icons iconDetails={user.riskFactors}/>
                     </Link>
